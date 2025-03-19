@@ -12,7 +12,17 @@ export const createCourse = async (req, res) => {
 
 export const getAllCourses = async (req, res) => {
   try {
-    res.status(200).json({ "name": "hallo fajar" });
+    let query = {};
+    const { title, categoryId } = req.query;
+    if (title) {
+      query = { title: { $regex: title, $options: "i" } };
+    }
+    if (categoryId) {
+      query = { ...query, categoryId: categoryId };
+    }
+
+    const response = await courseModel.find(query);
+    res.status(200).json(response);
   } catch (error) {
     return res.status(401).json({ error, ms: "get all courses" });
   }
