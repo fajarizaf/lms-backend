@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./app.js",
+      "src": "./index.js",
       "use": "@vercel/node"
     }
   ],
@@ -12,6 +12,5 @@
       "dest": "/",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
-  ],
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  ]
 }
