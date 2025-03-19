@@ -20,10 +20,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/courses", courseRouter);
-app.use("/api/category", categoryRouter);
-app.use("/api/chapters", chapterRouter);
-app.use("/api/stripeCustomers", StripeCustomerRouter);
+app.use("/courses", courseRouter);
+app.use("/category", categoryRouter);
+app.use("/chapters", chapterRouter);
+app.use("/stripeCustomers", StripeCustomerRouter);
 
 mongoose
   .connect(process.env.URL)
