@@ -13,11 +13,11 @@ app.use(Express.json());
 
 // Enable CORS for all routes
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,PATCH");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  next();
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,PATCH");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    next();
 });
 
 app.use("/api/courses", courseRouter);
@@ -27,12 +27,12 @@ app.use("/api/stripeCustomers", StripeCustomerRouter);
 
 
 mongoose
-  .connect(process.env.URL)
-  .then(() => {
-    app.listen(process.env.PORT, () => console.log("connected"));
-  })
-  .catch((err) => {
-    console.log("mg err", err);
-  });
+    .connect(process.env.URL)
+    .then(() => {
+        app.listen(process.env.PORT, () => console.log("connected"));
+    })
+    .catch((err) => {
+        console.log("mg err", err);
+    });
 
 export default app
