@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = Express();
 
-app.use(Express.json());
+app.use(Express.static('public'))
 
 // Enable CORS for all routes
 app.use((req, res, next) => {
@@ -20,10 +20,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/courses", courseRouter);
-app.use("/category", categoryRouter);
-app.use("/chapters", chapterRouter);
-app.use("/stripeCustomers", StripeCustomerRouter);
+app.use("./courses", courseRouter);
+app.use("./category", categoryRouter);
+app.use("./chapters", chapterRouter);
+app.use("./stripeCustomers", StripeCustomerRouter);
 
 mongoose
   .connect(process.env.URL)
